@@ -1,0 +1,2 @@
+Tautan docker hub berisi container image
+https://hub.docker.com/r/chris1308/item-app
