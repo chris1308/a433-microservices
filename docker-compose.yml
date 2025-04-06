@@ -1,0 +1,31 @@
+# versi docker compose '3.8'
+version: '3.8'
+
+# membuat service item app dan item db
+services:
+  item-app:
+    # image yang digunakan
+    image: chris1308/item-app:v1
+    # item-app berjalan setelah item-db
+    depends_on:
+      - item-db
+    # port yang dimap ke 80
+    ports:
+      - "82:8080"
+    # restart policy supaya container restart setiap mati
+    restart: always
+
+  item-db:
+    # Menggunakan image mongo:3 dari Docker Hub
+    image: mongo:3
+    # # Menggunakan volume app-db dengan target /data/db
+    volumes:
+      - app-db:/data/db 
+    # restart policy supaya container restart setiap mati
+    restart: always
+
+# membuat volume app-db
+# volume ini digunakan untuk menyimpan data dari item-db
+# supaya data tidak hilang ketika container dihapus
+volumes:
+  app-db:
