@@ -21,7 +21,7 @@ docker tag $IMAGE_NAME:$TAG $DOCKERHUB_IMAGE
 
 # 4. Login ke Docker Hub
 echo "Logging in to Docker Hub..."
-docker login --username=$DOCKERHUB_USERNAME
+echo $PASSWORD_DOCKER_HUB | docker login -u $DOCKERHUB_USERNAME --password-stdin
 
 # 5. Mengunggah image ke Docker Hub
 echo "Pushing Docker image to Docker Hub..."
