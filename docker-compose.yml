@@ -11,7 +11,7 @@ services:
       - item-db
     # port yang dimap ke 80
     ports:
-      - "82:8080"
+      - "80:8080"
     # restart policy supaya container restart setiap mati
     restart: always
 
